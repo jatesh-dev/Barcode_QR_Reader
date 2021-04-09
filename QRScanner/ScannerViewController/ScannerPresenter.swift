@@ -26,8 +26,8 @@ final class ScannerPresenter {
 }
 
 extension ScannerPresenter: ScannerPresenterProtocol {
-    func openCamera() {
-        
+    func navigateToDashboard() {
+        router.navigateToViewController(controller: DashboardRouter.createModule())
     }
 }
 

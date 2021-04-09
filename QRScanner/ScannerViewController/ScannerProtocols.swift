@@ -12,12 +12,13 @@ import UIKit
 
 // MARK: Wireframe -
 protocol ScannerWireframeProtocol: class {
-    static func createModule() -> UIViewController
+    static func createModule(delegate: ScannerViewControllerDelegate) -> UIViewController
+    func navigateToViewController(controller: UIViewController)
 }
 // MARK: Presenter -
 protocol ScannerPresenterProtocol: class {
     var interactor: ScannerInteractorInputProtocol? { get set }
-    func openCamera()
+    func navigateToDashboard()
 }
 
 // MARK: Interactor -

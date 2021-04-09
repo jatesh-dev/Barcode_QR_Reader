@@ -18,7 +18,7 @@ final class ScannerRouter {
         print("deinit ScannerRouter")
     }
 
-    static func createModule() -> UIViewController {
+    static func createModule(delegate: ScannerViewControllerDelegate) -> UIViewController {
 
         // Change to get view from storyboard if not using progammatic UI
         let view = scannerViewController.instantiateViewController(identifier: "ScannerViewController") as? ScannerViewController
@@ -29,7 +29,9 @@ final class ScannerRouter {
         view!.presenter = presenter
         interactor.presenter = presenter
         router.viewController = view
-
+        
+        view!.delegate = delegate.self
+        
         return view!
     }
     
@@ -37,5 +39,7 @@ final class ScannerRouter {
 }
 
 extension ScannerRouter: ScannerWireframeProtocol {
-
+    func navigateToViewController(controller: UIViewController) {
+        
+    }
 }

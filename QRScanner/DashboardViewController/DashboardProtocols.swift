@@ -13,13 +13,16 @@ import UIKit
 // MARK: Wireframe -
 protocol DashboardWireframeProtocol: class {
     static func createModule() -> UIViewController
+    func openViewController(controller: UIViewController)
+    
 }
 // MARK: Presenter -
 protocol DashboardPresenterProtocol: class {
 
     var interactor: DashboardInteractorInputProtocol? { get set }
 
-    func openScannerView()
+    func navigateToScannerViewController()
+    func navigateToGenerateCodeViewController()
 }
 
 // MARK: Interactor -
@@ -39,5 +42,5 @@ protocol DashboardInteractorInputProtocol: class {
 protocol DashboardViewProtocol: class {
 
     var presenter: DashboardPresenterProtocol? { get set }
-    func showResults()
+    func displayOutputFromScanner(data: String)
 }

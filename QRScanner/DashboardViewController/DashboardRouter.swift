@@ -21,7 +21,7 @@ final class DashboardRouter {
     static func createModule() -> UIViewController {
 
         let view = dashboardViewController.instantiateViewController(identifier: "DashboardViewController") as? DashboardViewController
-        // Change to get view from storyboard if not using progammatic UI
+
         let interactor = DashboardInteractor()
         let router = DashboardRouter()
         let presenter = DashboardPresenter(interface: view!, interactor: interactor, router: router)
@@ -37,5 +37,7 @@ final class DashboardRouter {
 }
 
 extension DashboardRouter: DashboardWireframeProtocol {
-
+    func openViewController(controller: UIViewController) {
+        viewController?.navigationController?.pushViewController(controller, animated: true)
+    }
 }

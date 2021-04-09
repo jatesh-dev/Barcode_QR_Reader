@@ -9,7 +9,11 @@
 import UIKit
 
 
-final class DashboardPresenter {
+final class DashboardPresenter: ScannerViewControllerDelegate {
+    func getQRCodeData(data: String) {
+        view?.displayOutputFromScanner(data: data)
+    }
+    
 
     weak private var view: DashboardViewProtocol?
     var interactor: DashboardInteractorInputProtocol?
@@ -24,18 +28,15 @@ final class DashboardPresenter {
     deinit {
         print("deinit DashboardPresenter")
     }
-
-    func viewDidLoad() {
-
-    }
 }
 
 extension DashboardPresenter: DashboardPresenterProtocol {
-    func openScannerView() {
-        
+    func navigateToScannerViewController() {
+        router.openViewController(controller: ScannerRouter.createModule(delegate: self))
     }
-    func openModule(controller: UIViewController){
-        
+    
+    func navigateToGenerateCodeViewController() {
+        router.openViewController(controller: GenerateQR_BarcodeRouter.createModule())
     }
 }
 
