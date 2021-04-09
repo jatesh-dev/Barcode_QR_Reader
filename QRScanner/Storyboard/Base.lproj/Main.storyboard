@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ku7-Hb-9AG">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="tjp-Va-ywU">
+            <objects>
+                <navigationController id="ku7-Hb-9AG" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="skF-bX-ODG">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="oda-ke-bCZ" kind="relationship" relationship="rootViewController" id="LDs-gU-Q3k"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wix-Gf-sJN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1157" y="59"/>
+        </scene>
+        <!--ScannerViewController-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="ScannerViewController" title="ScannerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ScannerViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59w-5b-Snm">
+                                <rect key="frame" x="57" y="114" width="300" height="698"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="r0M-W3-jup"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan QR / Bar Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlQ-E9-Q6i">
+                                <rect key="frame" x="10" y="64" width="394" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <color key="textColor" red="0.222152823" green="0.24816656149999999" blue="0.27928850049999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="AlQ-E9-Q6i" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="7r9-Gz-XtT"/>
+                            <constraint firstItem="59w-5b-Snm" firstAttribute="top" secondItem="AlQ-E9-Q6i" secondAttribute="bottom" constant="20" id="DcB-ca-heb"/>
+                            <constraint firstAttribute="trailing" secondItem="AlQ-E9-Q6i" secondAttribute="trailing" constant="10" id="RkK-Kn-Fxy"/>
+                            <constraint firstItem="AlQ-E9-Q6i" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="ZXI-GE-dAy"/>
+                            <constraint firstItem="59w-5b-Snm" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="a2b-tp-gCU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="59w-5b-Snm" secondAttribute="bottom" constant="50" id="yE7-Fg-f3Q"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="SLX-24-JjQ"/>
+                    <connections>
+                        <outlet property="viewVideo" destination="59w-5b-Snm" id="DFd-08-Z1x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138" y="59"/>
+        </scene>
+        <!--GenerateQR Barcode View Controller-->
+        <scene sceneID="0dB-0Y-zjq">
+            <objects>
+                <viewController storyboardIdentifier="GenerateQR_BarcodeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2mu-NN-XPH" customClass="GenerateQR_BarcodeViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TxF-lR-BiR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wWm-xo-kev">
+                                <rect key="frame" x="10" y="64" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gVH-f1-mrs">
+                                <rect key="frame" x="10" y="118" width="394" height="32"/>
+                                <color key="backgroundColor" red="0.84503574560000005" green="0.84503574560000005" blue="0.84503574560000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <segments>
+                                    <segment title="Barcode"/>
+                                    <segment title="QR Code"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="segmentedSelectedCodeType:" destination="2mu-NN-XPH" eventType="valueChanged" id="v6P-vS-RYe"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yz-hL-cXG">
+                                <rect key="frame" x="10" y="169" width="394" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="Generate Code">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonGenerateCode:" destination="2mu-NN-XPH" eventType="touchUpInside" id="F7x-yr-AJX"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CiD-qM-Vco">
+                                <rect key="frame" x="57" y="255" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="hgD-sK-gge"/>
+                                    <constraint firstAttribute="height" constant="300" id="qyv-5t-Oat"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bUV-et-0jy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CiD-qM-Vco" firstAttribute="centerX" secondItem="bUV-et-0jy" secondAttribute="centerX" id="EDc-CY-dOI"/>
+                            <constraint firstItem="CiD-qM-Vco" firstAttribute="top" secondItem="6yz-hL-cXG" secondAttribute="bottom" constant="50" id="K2e-La-Nfw"/>
+                            <constraint firstItem="gVH-f1-mrs" firstAttribute="leading" secondItem="TxF-lR-BiR" secondAttribute="leading" constant="10" id="ON7-yE-Nu8"/>
+                            <constraint firstItem="6yz-hL-cXG" firstAttribute="leading" secondItem="TxF-lR-BiR" secondAttribute="leading" constant="10" id="P2R-5v-Su1"/>
+                            <constraint firstAttribute="trailing" secondItem="gVH-f1-mrs" secondAttribute="trailing" constant="10" id="QNA-F8-p2h"/>
+                            <constraint firstItem="gVH-f1-mrs" firstAttribute="top" secondItem="wWm-xo-kev" secondAttribute="bottom" constant="20" id="Y6i-43-rSD"/>
+                            <constraint firstAttribute="trailing" secondItem="6yz-hL-cXG" secondAttribute="trailing" constant="10" id="mvN-G1-cTf"/>
+                            <constraint firstItem="wWm-xo-kev" firstAttribute="top" secondItem="bUV-et-0jy" secondAttribute="top" constant="20" id="pJi-hc-cZ5"/>
+                            <constraint firstItem="bUV-et-0jy" firstAttribute="trailing" secondItem="wWm-xo-kev" secondAttribute="trailing" constant="10" id="qhz-Rp-yew"/>
+                            <constraint firstItem="6yz-hL-cXG" firstAttribute="top" secondItem="gVH-f1-mrs" secondAttribute="bottom" constant="20" id="qyl-NZ-dBh"/>
+                            <constraint firstItem="wWm-xo-kev" firstAttribute="leading" secondItem="bUV-et-0jy" secondAttribute="leading" constant="10" id="uYY-LD-Uty"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buttonGenerateCode" destination="6yz-hL-cXG" id="tUm-W5-TaM"/>
+                        <outlet property="imageViewCode" destination="CiD-qM-Vco" id="4Id-M3-vcy"/>
+                        <outlet property="segmentSelectCodeType" destination="gVH-f1-mrs" id="gKA-zL-TEj"/>
+                        <outlet property="textfieldInput" destination="wWm-xo-kev" id="cFD-vQ-jcf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5uj-fc-Pso" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="819" y="59"/>
+        </scene>
+        <!--Dashboard-->
+        <scene sceneID="Hhs-pi-W8O">
+            <objects>
+                <viewController storyboardIdentifier="DashboardViewController" title="Dashboard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oda-ke-bCZ" customClass="DashboardViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CNT-0P-qwi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u90-WP-6Kt">
+                                <rect key="frame" x="10" y="786" width="394" height="60"/>
+                                <color key="backgroundColor" red="0.76888017180000001" green="0.85891480379999996" blue="0.96662913100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Fn7-va-4MA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Code Scanner">
+                                    <color key="titleColor" red="0.047058823530000002" green="0.094117647060000004" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonQRcodeScanner" destination="oda-ke-bCZ" eventType="touchUpInside" id="UaF-Gk-l3l"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Results: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7X-w5-e1Z">
+                                <rect key="frame" x="10" y="138" width="394" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edR-Qj-ZrR">
+                                <rect key="frame" x="10" y="718" width="394" height="60"/>
+                                <color key="backgroundColor" red="0.76888017180000001" green="0.85891480379999996" blue="0.96662913100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="UTt-hp-0c5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Code Generator">
+                                    <color key="titleColor" red="0.047058823530000002" green="0.094117647060000004" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonCodeGenerator:" destination="oda-ke-bCZ" eventType="touchUpInside" id="rz7-y6-PVt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zZ2-qW-EHj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="h7X-w5-e1Z" secondAttribute="trailing" constant="10" id="8fq-Hq-uhC"/>
+                            <constraint firstItem="h7X-w5-e1Z" firstAttribute="leading" secondItem="CNT-0P-qwi" secondAttribute="leading" constant="10" id="9Q9-kk-HHj"/>
+                            <constraint firstItem="u90-WP-6Kt" firstAttribute="top" secondItem="edR-Qj-ZrR" secondAttribute="bottom" constant="8" symbolic="YES" id="JQm-Zx-cvi"/>
+                            <constraint firstAttribute="bottom" secondItem="u90-WP-6Kt" secondAttribute="bottom" constant="50" id="aZJ-XX-Qlt"/>
+                            <constraint firstItem="h7X-w5-e1Z" firstAttribute="top" secondItem="zZ2-qW-EHj" secondAttribute="top" constant="50" id="ddZ-TZ-iWk"/>
+                            <constraint firstItem="u90-WP-6Kt" firstAttribute="leading" secondItem="CNT-0P-qwi" secondAttribute="leading" constant="10" id="hHU-yk-yaM"/>
+                            <constraint firstAttribute="trailing" secondItem="edR-Qj-ZrR" secondAttribute="trailing" constant="10" id="hdn-u0-Drr"/>
+                            <constraint firstItem="edR-Qj-ZrR" firstAttribute="leading" secondItem="CNT-0P-qwi" secondAttribute="leading" constant="10" id="rhs-zo-WJz"/>
+                            <constraint firstAttribute="trailing" secondItem="u90-WP-6Kt" secondAttribute="trailing" constant="10" id="t9x-xE-ldC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Dashboard" id="PHD-9L-3o4"/>
+                    <connections>
+                        <outlet property="labelResults" destination="h7X-w5-e1Z" id="18W-85-Egj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CPy-2Q-50W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-514" y="59"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
