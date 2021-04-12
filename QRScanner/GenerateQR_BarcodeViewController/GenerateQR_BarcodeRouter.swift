@@ -18,7 +18,7 @@ final class GenerateQR_BarcodeRouter {
         print("deinit GenerateQR_BarcodeRouter")
     }
 
-    static func createModule() -> UIViewController {
+    static func createModule(delegate: GenerateQR_BarcodeViewControllerDelegate) -> UIViewController {
 
         // Change to get view from storyboard if not using progammatic UI
         let view = generateCodeViewController.instantiateViewController(identifier: "GenerateQR_BarcodeViewController") as? GenerateQR_BarcodeViewController
@@ -29,7 +29,7 @@ final class GenerateQR_BarcodeRouter {
         view!.presenter = presenter
         interactor.presenter = presenter
         router.viewController = view
-
+        view!.delegate = delegate.self
         return view!
     }
     
@@ -37,5 +37,11 @@ final class GenerateQR_BarcodeRouter {
 }
 
 extension GenerateQR_BarcodeRouter: GenerateQR_BarcodeWireframeProtocol {
-   
+    func navigateToViewController(controller: UIViewController) {
+        viewController?.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func goBack() {
+        viewController?.navigationController?.popViewController(animated: true)
+    }
 }

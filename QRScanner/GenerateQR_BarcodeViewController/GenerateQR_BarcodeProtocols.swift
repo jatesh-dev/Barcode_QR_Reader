@@ -12,7 +12,7 @@ import UIKit
 
 // MARK: Wireframe -
 protocol GenerateQR_BarcodeWireframeProtocol: class {
-    static func createModule () -> UIViewController
+    static func createModule (delegate: GenerateQR_BarcodeViewControllerDelegate) -> UIViewController
 }
 // MARK: Presenter -
 protocol GenerateQR_BarcodePresenterProtocol: class {

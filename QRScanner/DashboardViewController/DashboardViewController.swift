@@ -9,10 +9,12 @@ import UIKit
 
 class DashboardViewController: UIViewController{
     @IBOutlet private var labelResults: UILabel!
+    @IBOutlet weak var imageViewCode: UIImageView!
     var presenter: DashboardPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageViewCode.isHidden = true
     }
     
     deinit {
@@ -20,27 +22,25 @@ class DashboardViewController: UIViewController{
     }
     
     @IBAction private func buttonQRcodeScanner(){
+        labelResults.text = ""
+        imageViewCode.image = nil
         presenter?.navigateToScannerViewController()
-//        let qrCodeScanner = ScannerRouter.createModule(delegate: self)
-//        navigationController?.pushViewController(qrCodeScanner, animated: true)
     }
     
     @IBAction func buttonCodeGenerator(_ sender: Any) {
-        let codeGenerator = GenerateQR_BarcodeRouter.createModule()
-        navigationController?.pushViewController(codeGenerator, animated: true)
+        labelResults.text = ""
+        imageViewCode.image = nil
+        presenter?.navigateToGenerateCodeViewController()
     }
-    
-}
-
-extension DashboardViewController {
 }
 
 extension DashboardViewController: DashboardViewProtocol {
-    func displayOutputFromScanner(data: String) {
-        self.labelResults.text = data
+    func displayOutputFromGenerator(output: UIImage) {
+        self.imageViewCode.image = output
+        self.imageViewCode.isHidden = false
     }
     
-    func showResults() {
-        // QR Results loaded here
+    func displayOutputFromScanner(data: String) {
+        self.labelResults.text = data
     }
 }

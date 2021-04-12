@@ -17,6 +17,8 @@ class GenerateQR_BarcodeViewController: UIViewController {
     
     var presenter: GenerateQR_BarcodePresenterProtocol?
     var index = 0
+    var delegate: GenerateQR_BarcodeViewControllerDelegate?
+    
     deinit {
         print("deinit GenerateQR_BarcodeViewController")
     }
@@ -38,6 +40,7 @@ class GenerateQR_BarcodeViewController: UIViewController {
 extension GenerateQR_BarcodeViewController: GenerateQR_BarcodeViewProtocol {
     func displayCode(code: UIImage) {
         imageViewCode.image = code
+        delegate?.getCode(code: code)
     }
 }
 
@@ -51,4 +54,8 @@ extension GenerateQR_BarcodeViewController {
     @objc func hideKeyboard() {
         view.endEditing(true)
     }
+}
+
+protocol GenerateQR_BarcodeViewControllerDelegate {
+    func getCode(code: UIImage)
 }

@@ -9,7 +9,11 @@
 import UIKit
 
 
-final class DashboardPresenter: ScannerViewControllerDelegate {
+final class DashboardPresenter: ScannerViewControllerDelegate, GenerateQR_BarcodeViewControllerDelegate {
+    func getCode(code: UIImage) {
+        view?.displayOutputFromGenerator(output: code)
+    }
+    
     func getQRCodeData(data: String) {
         view?.displayOutputFromScanner(data: data)
     }
@@ -36,7 +40,7 @@ extension DashboardPresenter: DashboardPresenterProtocol {
     }
     
     func navigateToGenerateCodeViewController() {
-        router.openViewController(controller: GenerateQR_BarcodeRouter.createModule())
+        router.openViewController(controller: GenerateQR_BarcodeRouter.createModule(delegate: self))
     }
 }
 

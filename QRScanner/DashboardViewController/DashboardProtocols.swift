@@ -43,4 +43,5 @@ protocol DashboardViewProtocol: class {
 
     var presenter: DashboardPresenterProtocol? { get set }
     func displayOutputFromScanner(data: String)
+    func displayOutputFromGenerator(output: UIImage)
 }

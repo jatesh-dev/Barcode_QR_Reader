@@ -40,4 +40,8 @@ extension DashboardRouter: DashboardWireframeProtocol {
     func openViewController(controller: UIViewController) {
         viewController?.navigationController?.pushViewController(controller, animated: true)
     }
+    
+    func goBack() {
+        viewController?.navigationController?.popViewController(animated: true)
+    }
 }

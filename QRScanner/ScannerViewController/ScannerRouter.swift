@@ -40,6 +40,10 @@ final class ScannerRouter {
 
 extension ScannerRouter: ScannerWireframeProtocol {
     func navigateToViewController(controller: UIViewController) {
-        
+        viewController?.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func goBack() {
+        viewController?.navigationController?.popViewController(animated: true)
     }
 }

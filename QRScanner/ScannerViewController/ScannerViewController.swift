@@ -89,10 +89,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
 }
 
-extension ScannerViewController {
-    
-}
-
 extension ScannerViewController: ScannerViewProtocol {
 
 }
