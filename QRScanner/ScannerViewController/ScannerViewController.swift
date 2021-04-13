@@ -18,7 +18,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 	var presenter: ScannerPresenterProtocol?
     
     @IBOutlet weak var viewVideo: UIView!
-    var stringURL = String()
     var delegate: ScannerViewControllerDelegate?
     enum error : Error {
         case noCameraAvailable
@@ -44,17 +43,17 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         if metadataObjects.count > 0 {
-            let machineReadableCode = metadataObjects [0] as! AVMetadataMachineReadableCodeObject
+            guard let machineReadableCode = metadataObjects [0] as? AVMetadataMachineReadableCodeObject else { return }
+            guard let stringResult = machineReadableCode.stringValue else { return }
             if machineReadableCode.type == AVMetadataObject.ObjectType.qr {
-                stringURL = machineReadableCode.stringValue!
-                print(stringURL.description)
-                delegate?.getQRCodeData(data: stringURL.description)
+                print(stringResult.description)
+                delegate?.getQRCodeData(data: stringResult.description)
                 navigationController?.popViewController(animated: true)
-                guard let url = URL(string: stringURL.decomposedStringWithCanonicalMapping) else { return }
+                guard let url = URL(string: stringResult.decomposedStringWithCanonicalMapping) else { return }
                 UIApplication.shared.open(url)
             }
             else {
-                delegate?.getQRCodeData(data: machineReadableCode.stringValue!.description)
+                delegate?.getQRCodeData(data: stringResult.description)
                 navigationController?.popViewController(animated: true)
             }
         }

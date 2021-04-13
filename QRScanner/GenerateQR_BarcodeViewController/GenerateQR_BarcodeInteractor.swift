@@ -26,8 +26,10 @@ extension GenerateQR_BarcodeInteractor: GenerateQR_BarcodeInteractorInputProtoco
             filter = CIFilter(name: "CIQRCodeGenerator")
         }
         filter.setValue(data, forKey: "inputMessage")
-        let transform = CGAffineTransform(scaleX: 10, y: 10)
-        let image = UIImage(ciImage: filter.outputImage!.transformed(by: transform))
-        presenter?.getCodeToDisplay(code: image)
+        if let filteredImage = filter.outputImage {
+            let transform = CGAffineTransform(scaleX: 10, y: 10)
+            let image = UIImage(ciImage: filteredImage.transformed(by: transform))
+            presenter?.getCodeToDisplay(code: image)
+        }
     }
 }
